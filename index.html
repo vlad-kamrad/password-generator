@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./src/slider.css" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script src="./src/index.js" defer></script>
+  </head>
+  <body>
+    <div class="pass-generator-container">
+      <h1>Simple Random Password Generator</h1>
+      <section class="pass-generator">
+        <div class="pass-generator__row">
+          <div class="pass-generator__input-container">
+            <div id="password"></div>
+            <div id="password-badge"></div>
+            <button type="button" id="regenerate-password"></button>
+          </div>
+          <button type="button" id="pass-generator__copy-button">
+            Copy
+            <span class="pass-generator__copy-button-tooltip">Copied</span>
+          </button>
+        </div>
+        <div class="pass-generator__row">
+          <label>
+            Password length:
+            <span id="pass-generator__length"></span>
+          </label>
+          <div class="pass-generator__slider-wrapper">
+            <button type="button" class="pass-generator__slider-minus"></button>
+            <input
+              type="range"
+              min="1"
+              max="50"
+              id="pass-generator__slider"
+              step="1"
+            />
+            <button type="button" class="pass-generator__slider-plus"></button>
+          </div>
+        </div>
+        <div class="pass-generator__row">
+          <label>Characters used:</label>
+          <div class="pass-generator__chars-used">
+            <label><input type="checkbox" data-char-type="0" />ABC</label>
+            <label><input type="checkbox" data-char-type="1" />abc</label>
+            <label><input type="checkbox" data-char-type="2" />123</label>
+            <label><input type="checkbox" data-char-type="3" />#$&</label>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Helvetica;
+  background: linear-gradient(133deg, #000069 0, #690000 100%);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 4vw;
+  cursor: default;
+  user-select: none;
+}
+
+/* Use only for test */
+.pass-generator-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.pass-generator {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  height: 14rem;
+  justify-content: space-around;
+}
+
+.pass-generator__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#pass-generator__length {
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.pass-generator__row label {
+  color: #ffffff;
+  line-height: 2rem;
+  font-size: 1.25rem;
+  font-weight: 200;
+  width: 45%;
+}
+
+.pass-generator__input-container {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 2.5rem;
+  padding: 0 1.2rem;
+  width: 100%;
+  min-width: 0;
+  margin-right: 1rem;
+}
+
+#pass-generator__copy-button {
+  position: relative;
+  min-width: 5rem;
+  height: 100%;
+  border: none;
+  background-color: #43ed9c;
+  border-radius: 5rem;
+  font-size: 0.825rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #261c6a;
+  transition: background-color 0.25s ease-in-out;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pass-generator__copy-button-tooltip {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0.65rem);
+  width: 125px;
+  height: 2rem;
+  background-color: #343a40;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  z-index: 1;
+  line-height: 2rem;
+  transition: opacity 0.25s, visibility 0.25s;
+  opacity: 0;
+}
+
+.copy-tooltip-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+#pass-generator__copy-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.125s ease-in-out;
+}
+
+#regenerate-password {
+  min-width: 2.75rem;
+  border: none;
+  height: inherit;
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcuMDkzIDE5LjU3M2E5LjQ4MiA5LjQ4MiAwIDAwNi41NzMgMS4yOThjMi4yODUtLjM4MiA0LjMzLTEuNTc4IDUuNzIxLTMuMzQ2bC4xODIgMS4xNzNhLjcxNS43MTUgMCAwMC43MTMuNTg0aC4xMDdhLjcyOS43MjkgMCAwMC40NzEtLjI2OS42NTMuNjUzIDAgMDAuMTMxLS41MDhsLS41ODQtMy43Ni0zLjczOC44NzhhLjY4My42ODMgMCAwMC0uNTI2LjgyOWMuMDkzLjM2OS40ODUuNTkzLjg3LjUwMmwxLjI2Ni0uMjk1Yy0xLjI2IDEuNjMyLTMuMTc3IDIuNjk1LTUuMjkzIDIuOTI4LTIuMTE1LjIzNi00LjIzOC0uMzc4LTUuODYtMS42OTMtMS42Mi0xLjMxNi0yLjU5NC0zLjIxMi0yLjY4OC01LjIzNy0uMDE2LS4zOC0uMzUzLS42NzItLjc1LS42NTYtLjM5Ny4wMTYtLjcwNC4zMzctLjY4Ny43MTQuMTM2IDIuNzc4IDEuNjU2IDUuMzI3IDQuMDkyIDYuODU4ek0zLjQ2NiA5LjI3OGwzLjk2OS0uODY0YS43MzMuNzMzIDAgMDAuNTc0LS44NzEuNzI1LjcyNSAwIDAwLS44ODYtLjU1MmwtMS4yODIuMjhBNy43NjYgNy43NjYgMCAwMTE2LjcwNCA2LjE4YTcuNzc0IDcuNzc0IDAgMDEyLjg0NCA1LjE3Ni43MjkuNzI5IDAgMDAuNzIzLjY0NWguMDgzYS43My43MyAwIDAwLjY0MS0uODA3IDkuMjI0IDkuMjI0IDAgMDAtMTYuMzgxLTQuNzJsLS4xNS0xLjIzOWgtLjAwMmEuNzM0LjczNCAwIDAwLTEuNDU3LjE3N2wuNDYxIDMuODY3eiIgZmlsbD0iIzI2MUM2QSIvPjwvc3ZnPg==)
+    no-repeat 50%;
+  cursor: pointer;
+}
+
+#password {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 0.75rem;
+}
+
+#password-badge {
+  height: 1.35rem;
+  min-width: 8rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.825rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #261c6a;
+  transition: background-color 0.25s ease-in-out;
+  border-radius: 0.2rem;
+  font-weight: 700;
+}
+
+#password-badge.strong {
+  background: #43ed9c;
+}
+
+#password-badge.good {
+  background: #f1c80b;
+}
+
+#password-badge.weak {
+  background: #f5203e;
+}
+
+#pass-generator__slider {
+  margin: 0 2%;
+}
+
+.pass-generator__slider-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.pass-generator__slider-wrapper button {
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  outline: none;
+}
+
+.pass-generator__slider-minus {
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjEwIDAgNDAgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTI2IDIwSDM0IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=)
+    no-repeat 50%;
+}
+
+.pass-generator__slider-plus {
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTggMi42MzZ2MTAuNzI4TTEzLjM2NCA4SDIuNjM2IiBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iMS4yIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=)
+    no-repeat 50%;
+}
+
+.pass-generator__slider-wrapper button:hover {
+  background-color: #28a745;
+  border: none;
+}
+
+.pass-generator__chars-used {
+  display: flex;
+  width: 100%;
+}
+
+.pass-generator__chars-used label {
+  min-width: 5rem;
+  margin-left: 0.25rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pass-generator__chars-used label input {
+  transform: scale(1.5);
+  margin-right: 0.75rem;
+}
+
+.rotate {
+  transform: rotate(-1turn);
+  transition: all 0.75s ease-out;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
