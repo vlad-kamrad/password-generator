@@ -237,6 +237,7 @@ h1 {
   .pass-generator__chars-used label {
     min-width: initial;
     margin: auto;
+    margin-left: 0.5rem;
   }
 
   #pass-generator__copy-button {
