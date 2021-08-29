@@ -61,7 +61,7 @@ passLenghtIncButton.addEventListener("click", () => {
 });
 
 regeneratePassButton.addEventListener("click", () => {
-  onChangePasswordLenght(state.passLenght);
+  setPasswordResult(getRandomPassword(state.allowChars, state.passLenght));
   regeneratePassButton.classList.add("rotate");
   setTimeout(() => {
     regeneratePassButton.classList.remove("rotate");
@@ -104,10 +104,7 @@ function onChangeCharCheckbox(inputCharTypes) {
 
   state.selectedCharTypes = inputCharTypes;
   state.allowChars = inputCharTypes.map(x => dataCharTypes[Number(x)]).join("");
-  passResult.textContent = getRandomPassword(
-    state.allowChars,
-    state.passLenght
-  );
+  setPasswordResult(getRandomPassword(state.allowChars, state.passLenght));
 }
 
 function onChangePasswordLenght(newValue) {
@@ -121,6 +118,21 @@ function onChangePasswordLenght(newValue) {
   passComplexityBadge.textContent = complexity;
   passComplexityBadge.classList.remove("strong", "good", "weak");
   passComplexityBadge.classList.add(complexity.replace("very ", ""));
+}
+
+function typeWriter(text, i, element, speed, callback) {
+  if (i < text.length) {
+    element.textContent = text.substring(0, i + 1);
+
+    setTimeout(() => typeWriter(text, i + 1, element, speed, callback), speed);
+  } else if (typeof callback == "function") {
+    setTimeout(callback, 700);
+  }
+}
+
+function setPasswordResult(value) {
+  const charWritingSpeed = Math.floor((1 / value.length) * 100);
+  typeWriter(value, 0, passResult, charWritingSpeed);
 }
 
 function getRandomPassword(inputString, length) {
